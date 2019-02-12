@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-Set xml element attribute
+Set xml element attribute.
 '''
 import xml.etree.ElementTree as ET
 
