@@ -53,7 +53,6 @@ because every single process has own interpreter therefore
 they can all run in parallel you can actually spread them out across
 multiple CPU cores and this solves the global interpreter lock problem
 
-
 """
 # with concurrent.futures.ProcessPoolExecutor() as executor:
 #    result = executor.map(backup_employees_data, employees)
