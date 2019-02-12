@@ -1,0 +1,14 @@
+<world>
+    <country name="Liechtenstein">
+        <visitor before="N" name="Aziz" />
+        <visitor before="Y" name="Ahmet" />
+    </country>
+    <country name="Germany">
+        <visitor before="N" name="Aziz" />
+        <visitor before="Y" name="Ahmet" />
+    </country>
+    <country name="Turkey">
+        <visitor before="Y" name="Aziz" />
+        <visitor before="Y" name="Ahmet" />
+    </country>
+</world>
