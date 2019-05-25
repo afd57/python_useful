@@ -1,7 +1,8 @@
 from threading import Timer
 from time import sleep
 from datetime import datetime
-
+import sys
+import ping
 
 class RepeatingTimer():
     """
@@ -30,17 +31,22 @@ class RepeatingTimer():
             Timer(self.interval, self.callback, ).start()
 
 
-def printer():
-    tempo = datetime.today()
-    h,m,s = tempo.hour, tempo.minute, tempo.second
-    print(f"{h}:{m}:{s}")
-
-
-def _print(arg):
-    printer()
-    sleep(5)
+class Environment():
+    def __init__(self, ip_adress, status=True):
+        self.ip = ip_adress
+        self.status = status
+    
+    def set_status(self, status):
+        if not status == self.status:
+            print("STATUS CHANGED!")
+            if status == False:
+                print("DOWN")
+            else:
+                print("UP")
+        else:
+            print(f'Enviromet Status: {status}')
 
 if __name__ == '__main__':
-    print('hello')
-    r = RepeatingTimer(_print, 1.0, "hello")
+    env = Environment("127.0.0.1")
+    r = RepeatingTimer(ping.ping_at, 20, env)
     r.start()
