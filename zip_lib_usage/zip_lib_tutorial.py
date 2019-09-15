@@ -36,7 +36,6 @@ shutil.unpack_archive(zip_path, extact_path, "zip")
 
 
 # usage 2 zipfile module
-
 file_name = "new_zip.zip"
 extact_path_2 = Path("./zipfile").resolve()
 with ZipFile(file_name, 'r') as zip:
