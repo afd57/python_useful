@@ -106,6 +106,7 @@ print(type(a_set))
 
 # 5 Function Annotations
 https://docs.python.org/3/library/typing.html
+
 For example, here is a simple function whose argument and return type are declared in the annotations:
 ```pyhton
 def greeting(name: str) -> str:
