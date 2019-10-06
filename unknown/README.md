@@ -1,5 +1,5 @@
 
-# Keyword Arguments
+# 1. Keyword Arguments
 
 src: http://book.pythontips.com/en/latest/args_and_kwargs.html
 
@@ -26,3 +26,19 @@ Monkey patching means modifying some code at runtime.
 Consider that you have a class with a function called get_info which calls an API and returns the response data. If we want to test it we can replace the API call with some test data
 
 src: http://book.pythontips.com/en/latest/args_and_kwargs.html
+
+
+## 2. Debugging
+
+If you wanna debug your python script line by line you can set break point in your script.
+
+Set Break Point:
+import pdb
+
+pdb.set_trace() #it is a break point :)
+
+or you can run your script with "-m pdb" parameter, 
+$python -m pdb debug_python.py
+
+check debug_python.py script
+
