@@ -103,3 +103,11 @@ a_set = {'red', 'blue', 'green'}
 print(type(a_set))
 #Output: <type 'set'>
 ```
+
+# 5 Function Annotations
+For example, here is a simple function whose argument and return type are declared in the annotations:
+```pyhton
+def greeting(name: str) -> str:
+    return 'Hello ' + name
+```
+Argument type and return type is important to understand function and to prevent mistakes. 
