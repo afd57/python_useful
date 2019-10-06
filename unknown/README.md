@@ -29,6 +29,7 @@ src: http://book.pythontips.com/en/latest/args_and_kwargs.html
 
 
 ## 2. Debugging
+src: http://book.pythontips.com/en/latest/debugging.html
 
 If you wanna debug your python script line by line you can set break point in your script.
 
@@ -42,3 +43,33 @@ $python -m pdb debug_python.py
 
 check debug_python.py script
 
+
+## 3. Generators
+src: 
+https://medium.com/python-yaz-lar/python-generator-ve-i-teratorler-a53e59f7c5b1
+http://book.pythontips.com/en/latest/generators.html
+https://takopweb.com/python-yineleyiciler/
+
+Iterable (yinelenebilir)
+An iterable is any object in Python which has an __iter__ or a __getitem__ method defined which returns an iterator or can take indexes
+iterable using the series s[0], s[1], s[2], ... until IndexError or StopIteration is raised.
+
+Iterator (yineleyici)
+An iterator is any object in Python which has a next (Python2) or __next__ method defined.
+
+Iteration
+When we use a loop to loop over something it is called iteration. It is the name given to the process itself. 
+
+All of these parts are linked to each other. We will discuss them one by one and later talk about generators.
+
+Generators
+Generators are iterators, but you can only iterate over them once. It’s because they do not store all the values in memory, they generate the values on the fly. You use them by iterating over them, either with a ‘for’ loop or by passing them to any function or construct that iterates.
+
+```python
+def generator_function():
+    for i in range(10):
+        yield i
+
+for item in generator_function():
+    print(item)
+```
