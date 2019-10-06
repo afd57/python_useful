@@ -28,7 +28,7 @@ Consider that you have a class with a function called get_info which calls an AP
 src: http://book.pythontips.com/en/latest/args_and_kwargs.html
 
 
-## 2. Debugging
+# 2. Debugging
 src: http://book.pythontips.com/en/latest/debugging.html
 
 If you wanna debug your python script line by line you can set break point in your script.
@@ -44,7 +44,7 @@ $python -m pdb debug_python.py
 check debug_python.py script
 
 
-## 3. Generators
+# 3. Generators
 src: 
 https://medium.com/python-yaz-lar/python-generator-ve-i-teratorler-a53e59f7c5b1
 http://book.pythontips.com/en/latest/generators.html
@@ -73,3 +73,31 @@ def generator_function():
 for item in generator_function():
     print(item)
 ```
+
+# (set) Data Structure
+
+set is a really useful data structure. sets behave mostly like lists with the distinction that **set can not contain duplicate values.** It is really useful in a lot of cases. 
+
+Intersection
+You can intersect two sets. For instance:
+```python
+valid = set(['yellow', 'red', 'blue', 'green', 'black'])
+input_set = set(['red', 'brown'])
+print(input_set.intersection(valid))
+# Output: set(['red'])
+```
+
+Difference
+
+You can find the invalid values in the above example using the difference method.
+```python
+valid = set(['yellow', 'red', 'blue', 'green', 'black'])
+input_set = set(['red', 'brown'])
+print(input_set.difference(valid))
+# Output: set(['brown'])
+```
+
+You can also create sets using the new notation:
+a_set = {'red', 'blue', 'green'}
+print(type(a_set))
+#Output: <type 'set'>
