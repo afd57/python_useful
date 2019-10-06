@@ -74,7 +74,7 @@ for item in generator_function():
     print(item)
 ```
 
-# (set) Data Structure
+# 4 (set) Data Structure
 
 set is a really useful data structure. sets behave mostly like lists with the distinction that **set can not contain duplicate values.** It is really useful in a lot of cases. 
 
@@ -98,6 +98,8 @@ print(input_set.difference(valid))
 ```
 
 You can also create sets using the new notation:
+```python
 a_set = {'red', 'blue', 'green'}
 print(type(a_set))
 #Output: <type 'set'>
+```
