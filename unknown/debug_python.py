@@ -6,6 +6,7 @@ def working_func(test, job, build):
     print("Works good")
     print("Works good...")
     print("Works good.....")
+    pdb.set_trace()
     print("Works good.......")
     print("Works good.........")
     print("Works good...........")
