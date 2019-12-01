@@ -1,0 +1,50 @@
+db.getCollection('lesson_group').aggregate([
+    { $group: {
+            _id: '$type',
+            events: {
+                $push: {
+                    ip: '$ip', 
+                    status: '$status',
+                    type: "$type"
+                }
+            }
+        }
+    },
+    {
+    $project: {
+        running: {
+            $filter: {
+                input: '$events',
+                as: 'event',
+                cond: {$in: ['$$event.status',
+                            ['running'
+                            ]
+                        ]
+                    }
+                }
+            },
+        finished: {
+            $filter: {
+                input: '$events',
+                as: 'event',
+                cond: {$in: ['$$event.status',
+                            ['finished'
+                            ]
+                        ]
+                    }
+                }
+            },
+        stopped: {
+            $filter: {
+                input: '$events',
+                as: 'event',
+                cond: {$in: ['$$event.status',
+                            ['stopped'
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    }
+])

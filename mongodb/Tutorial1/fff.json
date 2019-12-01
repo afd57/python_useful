@@ -1,0 +1,255 @@
+{
+    "_id": 1,
+    "type": "linux",
+    "ip": "10.10.10.10",
+    "status": "running"
+}
+{
+    "_id": 3,
+    "type": "linux",
+    "ip": "10.10.10.12",
+    "status": "stopped"
+}
+{
+    "_id": 8,
+    "type": "windows",
+    "ip": "10.10.10.18",
+    "status": "stopped"
+}
+{
+    "_id": 9,
+    "type": "windows",
+    "ip": "10.10.10.19",
+    "status": "finished"
+}
+
+{
+    "_id": "windows",
+    "runing": [],
+    "stopped": [
+        "10.10.10.18"
+    ],
+    "finished": [
+        "10.10.10.19"
+    ]
+}
+
+{
+    "_id": "linux",
+    "runing": [
+        "10.10.10.10"
+    ],
+    "stopped": [
+        "10.10.10.12"
+    ],
+    "finished": []
+}
+
+
+db.getCollection('lesson_group').aggregate([
+    { $group : { _id : "$type", info: { $push: {
+                    "ip": "$ip",
+                    "status": "$status"
+                }
+            }
+        }
+    }
+])
+
+
+    { $cond: { if: <boolean-expression>, then: <true-case>, else: <false-case>
+    }
+}
+    { $cond: { if: { $eq: [
+                "$info.status",
+                "stopped"
+            ]
+        }, then: 30, else: 20
+    }
+}
+/* 1 */
+{
+    "_id": 1,
+    "type": "linux",
+    "ip": "10.10.10.10",
+    "status": "running"
+}
+
+
+$cond: { if: { $eq: [
+            "$status",
+            "stopped"
+        ]
+    }, then: $push: {
+        "ip": "$ip",
+        "type": "$type",
+        "status": "$status"
+    }
+}
+
+
+{ _id : {
+        "type": "$type"
+    }, 
+stopped: {
+  $cond: { if: { $eq: [
+                    "$status",
+                    "stopped"
+                ]
+            }, then: $push: {
+                "ip": "$ip",
+                "type": "$type",
+                "status": "$status"
+            }
+        },
+    },
+running: { $push: {
+            "ip": "$ip",
+            "type": "$type",
+            "status": "$status"
+        }
+    },
+finished: { $push: {
+            "ip": "$ip",
+            "type": "$type",
+            "status": "$status"
+        }
+    }
+}
+
+[
+    {
+        '$group': {
+            '_id': {
+                'type': '$type'
+            }, 
+            'stopped': {
+                $cond: { if: { $gte: [
+                            "$qty",
+                            250
+                        ]
+                    }, then: 30, else: 20
+                }
+            },
+        }
+    }
+]
+
+
+$switch: {
+    branches: [
+        { case: { $eq: [
+                    "$status",
+                    "stopped"
+                ]
+            }, then: $push: {
+                "ip": "$ip",
+                "status": "$status"
+            }
+        }
+    ]
+}
+
+
+ db.getCollection('lesson_group').aggregate([
+    { $group : { _id : "$type", 
+                stopped: { 
+                    $switch: {
+                        branches: [
+                        { case: { $eq: [
+                                    "$status",
+                                    "stopped"
+                                ]
+                            }, then: $push: {
+                                "ip": "$ip",
+                                "status": "$status"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+])
+
+
+
+stopped: { 
+    $switch: {
+        branches: [
+            { case: { $eq: [
+                        "$status",
+                        "stopped"
+                    ]
+                }, then: "jdlkjl"
+            }
+        ]
+    }
+}
+
+
+[
+    {
+        "_id": 1,
+    title: "abc123",
+    isbn: "0001122223334",
+    author: { last: "zzz", first: "aaa"
+        },
+    copies: 5,
+    lastModified: "2016-07-28"
+    },
+    {
+        "_id": 2,
+    title: "Baked Goods",
+    isbn: "9999999999999",
+    author: { last: "xyz", first: "abc", middle: ""
+        },
+    copies: 2,
+    lastModified: "2017-07-21"
+    },
+    {
+        "_id": 3,
+    title: "Ice Cream Cakes",
+    isbn: "8888888888888",
+    author: { last: "xyz", first: "abc", middle: "mmm"
+        },
+    copies: 5,
+    lastModified: "2017-07-22"
+    }
+]
+
+
+  [
+    {
+        "session_id": "1",
+        "event_type": "connect_begin",
+        "timestamp": "1488409541.674997",
+        "user_id": "f6830aac-60be-44df-9fa7-7aa530d637ce",
+        "u_at": ISODate("2017-03-01T23:05:42.077Z"),
+        "c_at": ISODate("2017-03-01T23:05:42.077Z")
+    },
+    {
+        "session_id": "2",
+        "event_type": "connect_end",
+        "timestamp": "1488409541.674997",
+        "user_id": "f6830aac-60be-44df-9fa7-7aa530d637ce",
+        "u_at": ISODate("2017-03-01T23:05:42.077Z"),
+        "c_at": ISODate("2017-03-01T23:05:42.077Z")
+    },
+    {
+        "session_id": "3",
+        "event_type": "connect_end",
+        "timestamp": "1488409541.674997",
+        "user_id": "f6830aac-60be-44df-9fa7-7aa530d637ce",
+        "u_at": ISODate("2017-03-01T23:05:42.077Z"),
+        "c_at": ISODate("2017-03-01T23:05:42.077Z")
+    },
+    {
+        "session_id": "4",
+        "event_type": "connect_begin",
+        "timestamp": "1488409541.674997",
+        "user_id": "f6830aac-60be-44df-9fa7-7aa530d637ce",
+        "u_at": ISODate("2017-03-01T23:05:42.077Z"),
+        "c_at": ISODate("2017-03-01T23:05:42.077Z")
+    }
+]
