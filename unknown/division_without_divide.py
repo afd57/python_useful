@@ -2,7 +2,7 @@
 '''
 Applied PEP8 (pycodestyle)
 
-Author:       Ahmet Gungor
+Author:       Aziz Furkan DAGLI
 Date  :       03.01.2020
 Description : This problem was asked by Nextdoor.
               Implement integer division without using the
@@ -18,32 +18,35 @@ import sys
 
 class Division():
     def __init__(self, product, divisor):
-        self.product = product
-        self.divisor = divisor
-        print(f"\n{self.product} {self.divisor}\n")
+        if not divisor == 0:
+            self.product = abs(product)
+            self.divisor = abs(divisor)
+
+            self.product_sign = self.num_sign(product)
+            self.divisor_sign = self.num_sign(divisor)
+            print(f"\n{product} {divisor}\n")
+        else:
+            print("ZeroDivisionError: division by zero")
+            sys.exit(1)
+
+    def num_sign(self,num):
+        if num >= 0:
+            return 1
+        else:
+            return -1
 
     def divide(self):
         div_result = 0
-        divisor_sign = 0
-
-        if self.divisor > 0:
-            divisor_sign = 1
-        elif self.divisor < 0:
-            divisor_sign = -1
-            self.divisor = self.divisor * -1
-        else:
-            print("ZeroDivisionError: division by zero")
-
         while self.product >= self.divisor:
             self.product = self.product - self.divisor
             div_result = div_result + 1
 
-        return (div_result*divisor_sign, self.product)
+        return (div_result*(self.product_sign*self.divisor_sign), self.product)
 
 
 if __name__ == "__main__":
-    product = 10
-    divisor = -3
+    product = -21
+    divisor = 2
     instance = Division(product, divisor)
     tuple_result = instance.divide()
     print(tuple_result)
