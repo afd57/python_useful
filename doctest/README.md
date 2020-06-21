@@ -15,7 +15,7 @@ def function():
     """
     >>> function(c) # write your testcase
     # write your expected result
-  	"""
+    """
 def hello_world():
   	"""
     >>> hello_world()
