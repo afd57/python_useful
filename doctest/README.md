@@ -13,15 +13,15 @@ The `doctest` module searches lines starting with “>>>” in `docstring` and r
 ```python
 def function():
     """
-		>>> function(c) # write your testcase
-		# write your expected result
+    >>> function(c) # write your testcase
+    # write your expected result
   	"""
 def hello_world():
   	"""
-		>>> hello_world()
-		helloWorld
-		"""
-		print("helloWorld")
+    >>> hello_world()
+    helloWorld
+    """
+    print("helloWorld")
 ```
 
 
